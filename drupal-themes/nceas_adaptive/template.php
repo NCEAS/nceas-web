@@ -5,9 +5,6 @@ function nceas_adaptive_preprocess_page(&$vars) {
    drupal_add_library('system', 'ui.button');
 }
 
-//function nceas_adaptive_preprocess_page(&$vars) {
-  // drupal_add_library('system', 'ui.button');
-//}
 /**
  * @file
  * Template.php - process theme data for your sub-theme.

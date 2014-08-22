@@ -34,10 +34,10 @@
   stylesheets[all][] = color/colors.css
   stylesheets[all][] = css/bootstrap.min.css
   stylesheets[all][] = css/grid.css
-  stylesheets[all][] = css/nceas_adaptive.responsive.css
   stylesheets[all][] = css/responsivegrid.css
   stylesheets[all][] = fonts/font-awesome/css/font-awesome.min.css
   stylesheets[all][] = css/nceas_adaptive.css
+  stylesheets[all][] = css/nceas_adaptive.responsive.css
 
   ; Internet Explorer Stylesheets
   ;
