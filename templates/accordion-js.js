@@ -1,37 +1,42 @@
+/*
+ * Include this JS on any page that has the jQueryUI accordion widget. Use in conjunction with the accordion html template.
+ * 
+ * uses jQueryUI 10.2
+ * 
+ * Author: Lauren Walker 08/22/2014
+ * 
+ * 
+ */
+
+
 ;(function($) {
-if (window.location.hash != ""){
-var hash = window.location.hash;
-var hashfirst = window.location.hash;
 
-}else{
-var hash = false;
-var hashfirst = 0;
+// Initialize the accordions with all sections closed
+$( ".accordions" ).accordion({
+		collapsible: true,
+		heightStyle: content,
+        active: false
+   });
+
+// Get the hash from the URL 
+var hash;
+if (window.location.hash != ""){ 
+     hash = window.location.hash;
 }
+// If the URL has no hash, then use the ID of the very first accordion on the page 
+else{
+     hash = "#" + $( $(".ui-accordion-header")[0] ).attr("id");
+}
+// Get the accordion that contains the section with that ID
+var hashItem = $(hash);
+var containingAccordion =  $(hash).parent();
+// Find the index num of that accordion section
+var index = $(containingAccordion).find(".ui-accordion-header").index(hashItem);
+// Now open that accordion section
+$(containingAccordion).accordion("option", "active", index);
 
-	$( "#accordion" ).accordion({
-		collapsible: true,
-		autoHeight:false,
-                active: hashfirst
-    });
 
-	$( "#accordion2" ).accordion({
-		collapsible: true,
-		autoHeight:false,
-                active:hash
-    });
-	 
-	$( "#accordion3" ).accordion({
-		collapsible: true,
-		autoHeight:false,
-		active:hash
-    });
-
-	$( "#accordion4" ).accordion({
-		collapsible: true,
-		autoHeight:false,
-		active:hash
-    });
-
+// Initialize all the jQueryUI buttons
 $( ".buttonLinks" ).button();
 
-  }) (jQuery);
+ }) (jQuery);
