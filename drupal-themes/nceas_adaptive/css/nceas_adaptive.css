@@ -107,6 +107,10 @@ td, th{
 #top form {
 	margin: 0px;
 }
+.block-title a{
+	color: inherit;
+}
+	
 /*h1 {
 	font-size: 24px;
 	font-weight: bold;
