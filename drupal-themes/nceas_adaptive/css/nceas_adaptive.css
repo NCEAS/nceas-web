@@ -583,12 +583,7 @@ a.flex-prev, a.flex-next{
 /** NCEAS-specific rules **/
 .accordions{
 	margin-bottom: 4em;
-}
-.ui-accordion .ui-accordion-content {
-	overflow: auto;
-	border-radius: 0px;
-	border: 0px;
-	background: #EEEEEE;
+	width: 100%;
 }
 
 /** General jQueryUI customizations **/
@@ -605,6 +600,48 @@ a.flex-prev, a.flex-next{
 .ui-accordion-header.ui-state-active:hover a{
 	color: rgb(255, 220, 0);
 }
+.ui-accordion .ui-accordion-content {
+	overflow: auto;
+	border-radius: 0px;
+	border: 0px;
+	background: #f2eee9;
+}
+.ui-accordion .ui-accordion-header{
+	padding: .9em .9em .9em .3em;
+	border-radius:0px;
+	border:0px;
+}
+.ui-accordion-header span{ 
+	position: absolute;
+}
+.ui-accordion-header.ui-state-focus a,
+.ui-accordion-header.ui-state-focus a:link,
+.ui-accordion-header.ui-state-focus a:visited,
+.ui-accordion-header.ui-state-default a,
+.ui-accordion-header.ui-state-default a:link,
+.ui-accordion-header.ui-state-default a:visited,
+.ui-accordion-header.ui-state-hover a,
+.ui-accordion-header.ui-state-hover a:link,
+.ui-accordion-header.ui-state-hover a:visited,
+.ui-accordion-header.ui-state-active a,
+.ui-accordion-header.ui-state-active a:link,
+.ui-accordion-header.ui-state-active a:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.ui-accordion-header.ui-state-focus a:hover,
+.ui-accordion-header.ui-state-hover a:hover{
+	color: #f9bd01;
+}
+.ui-accordion-header a {
+	margin-left:25px;
+	text-transform:uppercase;
+}
+.ui-accordion-content .buttonLinks{
+	margin-right:5px;
+	float:left;
+}
+
 /*
  * ===================================================================================
  */
