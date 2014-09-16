@@ -725,10 +725,9 @@ a.flex-prev, a.flex-next{
 	position: absolute;
 	top: 20px;
 	left: 20px;
+	width: 255px;
 	background-color: rgb(40,39,39);
 	background-color: rgba(40,39,39, 0.7);
-	width: 255px;
-	padding: 10px;
 }
 .blurb .category a{
 	font-size: 0.9em;
@@ -739,6 +738,7 @@ a.flex-prev, a.flex-next{
 .blurb .over-image .category,
 .blurb .over-image .category a{
 	color: #b5b1b1;
+	margin-bottom: -5px;
 }
 .blurb .title{
 	font-size: 1.2em;
@@ -758,6 +758,8 @@ a.flex-prev, a.flex-next{
 }
 .blurb .over-image a{
 	color: #FFFFFF;
+	padding: 10px;
+	display: block;
 }
 .blurb .button{
 	border: 1px solid #8c8a87;
