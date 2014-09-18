@@ -579,7 +579,32 @@ a.flex-prev, a.flex-next{
 	display: none;
 }
 /*----------------------------------------------------------*/
-
+/*
+ * ============================== Pager =======================
+ */
+ div.item-list ul.pager li{
+ 	padding: 0px;
+ }
+ div.item-list ul.pager li:hover, div.item-list ul.pager li:focus{
+ 	border: inherit;
+ }
+ .pager li>a{
+ 	background-color: #f2eee9;
+ 	border: 1px solid #E3E0DB;
+	color: #63605D;
+	padding: 5px 10px;
+ }
+ .pager li>a:hover{
+	background-color: #C9C6C2;
+	border-color: transparent;
+ }
+ div.item-list ul.pager li.pager-current, div.item-list ul.pager li.pager-current a.active{
+ 	color: #63605D;
+ }
+ div.item-list ul.pager li, div.item-list ul.pager li a{
+ 	font-weight: normal;
+ }
+/*----------------------------------------------------------*/
 
 /*
  * ============================== Accordions =======================
