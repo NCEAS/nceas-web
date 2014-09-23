@@ -32,7 +32,14 @@ textarea{
 }
 .node-content input[type="text"],
 .node-content input[type="submit"]{
-	width: 95%;
+	width: 100%;
+	border-radius: 0px;
+}
+.node-content input[type="submit"]{
+	background-color: #3561b1;
+	color: #FFFFFF;
+	border-width: 0px;
+	font-weight: normal;
 }
 input[type="text"]:focus,
 select:focus,
@@ -110,22 +117,13 @@ td, th{
 .block-title a{
 	color: inherit;
 }
-	
-/*h1 {
-	font-size: 24px;
-	font-weight: bold;
-	margin: 9px;
+.block-title{
+	margin-bottom: 10px;
+	background-color: transparent;
 }
-h2, .block-title {
-	font-size: 22px;
-	color: #333333;
-	font-weight: normal;
-	margin: 5px 0px;
-}
-h2.field-content {
-	font-size: 1.2em;
-	font-weight: 500;
-}*/
+.node .node-content{
+	margin-top: 0px;
+}	
 #main-content {
 	margin: 0;
 }
@@ -481,6 +479,67 @@ h2.field-content {
 	margin: 0 0 30px;
 }
 
+
+.more-link {
+	margin-top: 10px;
+	font-weight: bold;
+	text-align: center;
+	text-transform: capitalize;
+}
+
+.view .item-list ul li {
+	list-style: none;
+	margin-left: 0px;
+}
+.more-link a {
+	border: 1px solid #8c8a87;
+	color: #8c8a87;
+	padding: 10px;
+	margin-top: 10px;
+	text-transform: uppercase;
+	font-weight: light;
+	font-size: .85em;
+	display: inline-block;
+}
+.more-link a:hover{
+	text-decoration: none;
+	background-color: #FFFFFF;
+	background-color: rgba(255, 255, 255, 0.5);
+	color: #333333;
+}
+/******************* Pager *********************/
+.pager li > a, 
+.pager li > span{
+	border-color: #3561b1;
+	color: #3561b1;
+	border-radius: 0px;
+	border-width: 1px;
+	font-weight: normal;
+}
+.pager li > a:hover{
+	background-color: #3561b1;	
+	color: #FFFFFF;
+}
+div.item-list ul.pager li:hover, 
+div.item-list ul.pager li:focus{
+	border: 0px solid transparent;	
+}
+/*********************************************/
+/******** Flexslider CSS overrides **********/
+a.flex-prev, a.flex-next{
+	color: #FFFFFF;
+	height: 50px;
+}
+.flex-text{
+	background-color: #000000;
+	background-color: rgba(0,0,0,0.7);
+	color: #FFFFFF;
+	width: 100%;
+	padding: 0px 2%;
+	line-height: 1.6em;
+	position: absolute;
+	bottom: 0;
+}
 .flexslider {
 	margin-bottom: 0;
 	border-radius: 0;
@@ -502,34 +561,6 @@ h2.field-content {
 .flexslider .flex-control-paging li a {
 	background: #F60;
 	border: 1px solid #fff;
-}
-
-.more-link {
-	margin-top: 10px;
-	font-weight: bold;
-	text-align: center;
-	text-transform: capitalize;
-}
-
-.view .item-list ul li {
-	list-style: none;
-	margin-left: 0px;
-}
-
-/******** Flexslider CSS overrides **********/
-a.flex-prev, a.flex-next{
-	color: #FFFFFF;
-	height: 50px;
-}
-.flex-text{
-	background-color: #000000;
-	background-color: rgba(0,0,0,0.7);
-	color: #FFFFFF;
-	width: 100%;
-	padding: 0px 2%;
-	line-height: 1.6em;
-	position: absolute;
-	bottom: 0;
 }
 /******************************************/
 
@@ -614,6 +645,7 @@ a.flex-prev, a.flex-next{
 	padding: .9em .9em .9em .3em;
 	border-radius:0px;
 	border:0px;
+	width: 98%;
 }
 .ui-accordion-header span{ 
 	position: absolute;
@@ -860,14 +892,5 @@ a.flex-prev, a.flex-next{
 }
 
 /*
- * ===================================================================================
- */
- 
- /*
- * ============================== Grid fixes ===========================================
- */
- /* Break to a new lineevery third element - useful for blurbs */
-
- /*
  * ===================================================================================
  */
