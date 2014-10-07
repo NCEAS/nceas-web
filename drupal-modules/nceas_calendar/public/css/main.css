@@ -1,0 +1,34 @@
+/**
+ * Make sure calendar fills page horizontally.
+ */
+[ui-calendar] {
+  width: 100%;
+}
+
+/** 
+ * by default, links are blue and blend in with blue bg
+ * we want them to be white!
+ */
+[ui-calendar] a.fc-event {
+  color: #fff;
+}
+
+/**
+ * Shouldn't wrap text -- hover over to see full event info
+ */
+[ui-calendar] .fc-event-innter {
+  white-space: nowrap;
+}
+
+[ui-calendar] .fc-view.fc-view-month.fc-grid {
+  overflow: visible;
+}
+
+[ui-calendar] .popover {
+  z-index: 1000;
+  min-width: 200px;
+}
+
+[ui-calendar] .fc-event {
+  white-space: nowrap;
+}

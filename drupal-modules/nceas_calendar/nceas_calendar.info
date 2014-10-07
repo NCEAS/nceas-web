@@ -1,0 +1,4 @@
+name        = NCEAS Calendar
+description = Aggregates events from drupal calendar and NCEAS database meetings
+core        = 7.x
+version     = 7.x-1.0

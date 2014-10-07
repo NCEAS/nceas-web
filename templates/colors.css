@@ -55,7 +55,7 @@ a:link,
 a:visited,
 a:active,
 a.active {
-  color: #3561b1;
+  color: #375e7c;
 }
 
 a:hover,
@@ -120,7 +120,7 @@ tr.even {
 
 .region-header .form-text,
 .region-header .form-submit {
-  border-color: #3561b1;
+  border-color: #375e7c;
 }
 
 
@@ -145,7 +145,7 @@ tr.even {
 }
 
 #footer #block-node-recent a {
-  color: #3561b1;
+  color: #375e7c;
 }
 
 
@@ -178,7 +178,7 @@ tr.even {
 }
 
 .poll .bar .foreground {
-  background: #3561b1 url(bg-lbar.png) repeat-x center left;
+  background: #375e7c url(bg-lbar.png) repeat-x center left;
 }
 
 
@@ -256,13 +256,13 @@ div.item-list ul.pager li a.active {
 div.item-list ul.pager li:hover,
 div.item-list ul.pager li:focus {
   border: 1px solid #fff;
-  color: #3561b1;
+  color: #375e7c;
 }
 
 div.item-list ul.pager li.pager-current,
 div.item-list ul.pager li.pager-current a.active {
   border: 1px solid #fff;
-  color: #3561b1;
+  color: #375e7c;
 }
 
 
@@ -352,7 +352,7 @@ ul.sf-menu.sf-navbar.sf-style-default li ul {
 }
 
 ul.sf-menu.sf-navbar.sf-style-default > li > ul > li {
-  border-bottom: 1px solid #3561b1;
+  border-bottom: 1px solid #375e7c;
 }
 
 
@@ -360,7 +360,7 @@ ul.sf-menu.sf-navbar.sf-style-default > li > ul > li {
 
 ul.sf-menu.sf-menu.sf-vertical.sf-style-default a {
   border: 0 !important;
-  color: #3561b1;
+  color: #375e7c;
 }
 ul.sf-menu.sf-vertical.sf-style-default a:hover,
 ul.sf-menu.sf-vertical.sf-style-default a:focus,
@@ -376,12 +376,12 @@ ul.sf-menu.sf-vertical.sf-style-default ul ul ul ul a {
 
 .calendar-calendar div.date-nav {
   background-color: transparent;
-  color: #3561b1;
+  color: #375e7c;
 }
 
 .calendar-calendar div.date-nav a,
 .calendar-calendar div.date-nav h3 {
-  color: #3561b1;
+  color: #375e7c;
 }
 
 .calendar-calendar td {
@@ -390,13 +390,13 @@ ul.sf-menu.sf-vertical.sf-style-default ul ul ul ul a {
 
 .calendar-calendar th {
   background-color: #b3cfe7;
-  color: #3561b1;
+  color: #375e7c;
   border: 1px solid #b3cfe7;
 }
 
 .calendar-calendar th.days {
   background-color: #fceff9;
-  color: #3561b1;
+  color: #375e7c;
 }
 
 .calendar-calendar tr td.today,

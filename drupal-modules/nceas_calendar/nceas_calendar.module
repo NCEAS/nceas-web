@@ -1,0 +1,342 @@
+<?php
+
+/**
+ * NCEAS Calendar
+ * A calendar application that displays all NCEAS events inside Drupal
+ *
+ * @author Zachary Babtkis <zackbabtkis@gmail.com>
+ * @date   March 26 2014
+ * @url    http://nceas.ucsb.edu/calendar
+ */
+
+/**
+ * Constant Definitions
+ */
+
+// Name of external database defined in Drupal's settings.php
+define('NCEAS_CALENDAR_DB', 'nead');
+
+// Name of activity table in external DB
+define('NCEAS_CALENDAR_ACTIVITY', 'nead_activity');
+
+// Name of project database in external DB
+define('NCEAS_CALENDAR_PROJECT', 'nead_project');
+
+// Today's date -- helpful for generating defaults
+define('NCEAS_CALENDAR_TODAY', date('m-d-Y'));
+
+/**
+ * Implements hook_permission();
+ */
+function nceas_calendar_permission() {
+  // 
+  return array(
+    
+    // Permissions for accessing the JSON data feed of calendar events
+    'access nceas calendar feed' => array(  
+      'title' => 'Access NCEAS Calendar Feed',
+      'description' => 'Read from NCEAS database events as feed'
+     ),
+
+     // Permissions for the page that the calendar displays on
+     'access nceas calendar' => array(
+      'title' => 'Access NCEAS Calendar',
+      'description' => 'View NCEAS Calendar page'
+     )
+  );
+}
+
+/**
+ * Implements hook_menu();
+ */
+function nceas_calendar_menu() {
+  return array(
+
+    // This is where the calendar lives on the website.
+    'calendar' => array(
+      'page callback' => 'nceas_calendar_render',
+      'access arguments' => array('access nceas calendar'),
+      'type' => MENU_CALLBACK
+    ),
+
+    // This displays all events from % database (nead or drupal)
+    'calendar/events/%' => array(
+      'page callback' => 'nceas_calendar_feed',
+      'access arguments' => array('access nceas calendar feed'),
+      'page arguments' => array(2),
+      'type' => MENU_CALLBACK
+    ),
+
+    // Displays all events from %1 db with start date greater than %2
+    'calendar/events/%/%' => array(
+      'page callback' => 'nceas_calendar_feed',
+      'access arguments' => array('access nceas calendar feed'),
+      'page arguments' => array(2, 3),
+      'type' => MENU_CALLBACK
+    ),
+
+    // Displays all events from %1 db between dates %2 and %3
+    'calendar/events/%/%/%' => array(
+      'page callback' => 'nceas_calendar_feed',
+      'access arguments' => array('access nceas calendar feed'),
+      'page arguments' => array(2, 3, 4),
+      'type' => MENU_CALLBACK
+    )
+  );
+}
+
+/**
+ * Implements hook_block_info();
+ * Create Drupal block for NCEAS Calendar
+ * - Can be used in Drupal panel or region
+ */
+function nceas_calendar_block_info() {
+  $block = array();
+
+  $block['nceas_calendar_block'] = array(
+    'info' => t('NCEAS Calendar'),
+    'cache' => DRUPAL_NO_CACHE
+  ); 
+
+  return $block;
+}
+
+function nceas_calendar_block_configure($delta = "") {
+  $form = array();
+
+  if($delta === 'nceas_calendar_block') {
+    $form['header'] = array(
+      '#type' => 'text_format',
+      '#title' => 'NCEAS Calendar Header',
+      '#default_value' => variable_get('nceas_calendar_header', '')
+    );
+  }
+
+  return $form;
+}
+
+function nceas_calendar_block_save($delta = "", $values = array()) {
+  if($delta === 'nceas_calendar_block') {
+    if(isset($values['header']) && $values['header']['value'] !== "") {
+      variable_set('nceas_calendar_header', $values['header']['value']);
+    }
+  }
+}
+
+/**
+ * Implements hook_block_view();
+ * Build nceas_calendar_block from calendar menu content
+ */
+function nceas_calendar_block_view($delta = '') {
+  $block = array();
+
+  print "<script>console.log('" . json_encode(variable_get('nceas_calendar_header')) . "');</script>";
+
+  if($delta === 'nceas_calendar_block') {
+    $markup = variable_get('nceas_calendar_header') . nceas_calendar_render();
+    $block['subject'] = t('NCEAS Calendar');
+    $block['content'] = array(
+      '#markup' => $markup,
+      '#title' => 'NCEAS Calendar'
+    );
+  }
+
+  return $block;  
+}
+
+
+/**
+ * Output application as HTML and add scripts/stylesheet dependencies
+ */
+function nceas_calendar_render() {  
+
+  // Base path of module resources (js, css etc.)
+  $mpath = drupal_get_path('module', 'nceas_calendar') . '/';
+  $public = $mpath . 'public/';
+  $components = $public . 'vendor/';
+  $scripts = $public . 'js/';
+  $styles = $public . 'css/';
+
+  // Add front-end application dependencies
+  drupal_add_js($components . 'angular/angular.min.js');
+  drupal_add_js($components . 'angular/route.js');
+  drupal_add_js($components . 'ui-bootstrap/ui-bootstrap.min.js');
+  drupal_add_js($components . 'fullcalendar/fullcalendar/fullcalendar.min.js');
+  drupal_add_js($components . 'fullcalendar/fullcalendar/gcal.js');
+  drupal_add_js($components . 'ui-calendar/src/calendar.js');
+  drupal_add_js($components . 'bootstrap/js/bootstrap.min.js');
+  drupal_add_js($components . 'spin/spin.min.js');
+
+  // Add css library dependencies
+  drupal_add_css($components . 'bootstrap/css/bootstrap.min.css');
+  drupal_add_css($components . 'fullcalendar/fullcalendar/fullcalendar.css');
+
+  // Add front end application
+  drupal_add_js($scripts . 'app.js');
+  drupal_add_css($styles . 'main.css');
+
+  // Output app HTML file (rendered in drupal block-system-main-menu region).
+  return file_get_contents($public . 'app.html');
+}
+
+/**
+ * Render list of events as JSON
+ */
+function nceas_calendar_feed($source = 'nead', $start_date = '1-1-1980', $end_date = NCEAS_CALENDAR_TODAY) {
+  $events = array();
+
+  // Determine which event database to look at based on $source param
+  switch($source) {
+
+  // User is trying to access events from NCEAS database
+  case 'nead':
+    $events = nceas_calendar_get_events($start_date, $end_date);
+    break;
+
+  // User is trying to access events from Drupal calendar events
+  case 'drupal':
+    $events = nceas_calendar_get_drupal_events($start_date, $end_date); 
+    break;
+
+  default:
+    break;
+  }
+
+  print json_encode($events);
+}
+
+// Check whether both times are midnight -- if so, this is all day event
+function _nceas_calendar_is_all_day($date1, $date2) {
+
+  // Get time for start and end of event as hour minute second (24hr fmt)
+  $time1      = date('HGi', $date1);
+  $time2      = date('HGi', $date2);
+
+  return ! (int) ($time1 | $time2);
+}
+  
+
+/**
+ * Map drupal event nodes to format consistend with nceas_calendar_feed output
+ */
+function _nceas_calendar_map_drupal_events($event) {
+
+  // This is the event object we will return.
+  $evt = (object) NULL;
+  $date       = $event->field_date['und'][0];
+  $date1      = strtotime($date['value']);
+  $date2      = strtotime($date['value2']);
+
+  // Determine whether the event is an 'all day' event based on event times.
+  $evt->allDay = _nceas_calendar_is_all_day($date1, $date2);
+  $evt->title  = $event->title;
+  $evt->id     = $event->nid;
+
+  // Build link to event page.
+  $evt->url   = '/node/' . $evt->id;
+
+  // Convert dates to UNIX timestamps 
+  $evt->start = date('U', $date1);
+  $evt->end   = date('U', $date2);
+
+  return $evt;
+}
+
+/**
+ * Fetch all calendar events from Drupal.
+ */
+function nceas_calendar_get_drupal_events($start_date, $end_date) {
+  $events = array();
+
+  // Find nodes that match our search ($start_date and $end_date
+  // in the Draupl database
+  $query = new EntityFieldQuery();
+  $query->entityCondition('entity_type', 'node');
+  $query->propertyCondition('type', 'calendar_event');
+  $query->fieldCondition('field_date', 'value', $start_date, '>=');
+  $query->fieldCondition('field_date', 'value2', $end_date, '<=');
+
+  $results = $query->execute();
+
+  if(isset($results['node'])) {
+
+    // Load the actual nodes
+    $events = entity_load('node', array_keys($results['node']));
+  }
+
+  // Return array of nodes that have been mapped to objects consistent
+  // with what front end expects.
+  return array_map('_nceas_calendar_map_drupal_events', array_values($events));
+}
+
+/**
+ * A little extra data manipulation for events from nead database
+ * @param {stdObject} $event - a single event from nead database
+ * @return {stdObject} manipulated event, ready to be sent to front end.
+ */
+function _nceas_calendar_map_nead_event($event) {
+  $event->allDay = _nceas_calendar_is_all_day($event->start, $event->end);
+  return $event;
+} 
+
+/**
+ * Render events JSON for /calendar/api path
+ */
+function nceas_calendar_get_events($start_date, $end_date) {
+  // Use NCEAS external database
+	db_set_active(NCEAS_CALENDAR_DB);
+
+  try {
+    $query = db_select(NCEAS_CALENDAR_ACTIVITY, 'a'); 
+    $query->join(NCEAS_CALENDAR_PROJECT, 'p', 'p.project_oid=a.project_oid');
+
+    // Add fields to query.
+    $query->addField('a', 'activity_oid', 'id');
+    $query->addField('a', 'start_date');
+    $query->addField('a', 'end_date');
+    $query->addField('p', 'title');
+    $query->addField('p', 'project_oid', 'project_id');
+
+    // Create Unix timestamp for start and end dates
+    $query->addExpression('EXTRACT(EPOCH FROM a.start_date)', 'start');
+    $query->addExpression('EXTRACT(EPOCH FROM a.end_date)', 'end');
+
+    // Generate link for project
+    $query->addExpression('\'/projects/\'||p.project_oid', 'url');
+
+    // Query where clause
+    $query->condition('p.webok', 'TRUE', '=')
+          ->condition('a.webok', 'TRUE', '=')
+          
+          // We only want to display Working Group/Meeting events in calendar.
+          ->condition('a.type', array('Working Group', 'Meeting'), 'IN')
+
+          // Select only events in given range ($start_date, $end_date)
+          ->condition(db_or()
+            ->condition(
+              db_and()
+                ->condition('a.start_date', $start_date, '>=')
+                ->condition('a.start_date', $end_date, '<=')
+            )->condition(
+              db_and()
+                ->condition('a.end_date', $start_date, '>=')
+                ->condition('a.end_date', $end_date, '<=')
+            )
+          );
+
+    // Query order
+    $query->orderBy('a.start_date');
+    $query->orderBy('a.type');
+
+    // Run query.
+    $results = $query->execute()->fetchAll();
+  } catch(Exception $e) {
+    watchdog('nceas_calendar.nceas_calendar_get_events', $e->getMessage(), array(), WATCHDOG_ALERT);
+  }
+
+  // Reset active database to default drupal database.
+	db_set_active();
+
+  return array_map('_nceas_calendar_map_nead_event', $results);
+}
+

@@ -36,7 +36,7 @@ textarea{
 	border-radius: 0px;
 }
 .node-content input[type="submit"]{
-	background-color: #3561b1;
+	background-color: #375e7c;
 	color: #FFFFFF;
 	border-width: 0px;
 	font-weight: normal;
@@ -101,7 +101,9 @@ td, th{
 	padding: 5px;
 }
 #top {
-	background: url(/files/images/headerBG.png);
+	/*background: url(/files/images/headerBG.png);*/
+	border-bottom: 5px solid #375e7c;
+	background-color: #F3FAFF;
 	width: 100%;
 	height: 129px;
 	margin: 0px;
@@ -114,13 +116,7 @@ td, th{
 #top form {
 	margin: 0px;
 }
-.block-title a{
-	color: inherit;
-}
-.block-title{
-	margin-bottom: 10px;
-	background-color: transparent;
-}
+
 .node .node-content{
 	margin-top: 0px;
 }	
@@ -129,9 +125,6 @@ td, th{
 }
 #main-content .block-inner {
 	margin: 0;
-}
-#promo-content h2 {
-	font-size: 1.46em;
 }
 .bodyHead {
 	width: 100%;
@@ -174,15 +167,16 @@ td, th{
 	display: block;
 	text-align: center;
 	padding: 6px 15px;
-	height: 35px;
-	background-image: url(/files/images/blueBox.png);
+	/*background-image: url(/files/images/blueBox.png);*/
+	background-color: #375e7c;
 	box-shadow: inset 0 5px 7px -6px black;
 	background-repeat: repeat-x;
 	background-position: center center;
 	text-decoration: none;
 	color: #fff;
-	font-weight: bold;
-	font-size: 14px;
+	font-weight: 300;
+	letter-spacing: 1px;
+	font-size: 1em;
 	line-height: 1.2em;
 	position: relative;
 	z-index: 0;
@@ -211,8 +205,9 @@ td, th{
 }
 */
 #nceas-menu #menu-bar ul.menu li a:hover, #nceas-menu #menu-bar ul.menu li a.active {
-	background-image: url(/files/images/greenBox.png);
-	background-repeat: no-repeat;
+	/*background-image: url(/files/images/greenBox.png);
+	background-repeat: no-repeat;*/
+	background-color: #6fbca4;
 }
 
 #block-search-form .form-wrapper, #block-search-form .form-actions {
@@ -248,33 +243,28 @@ td, th{
 
 .quickNav .hoverBox a {
 	display: block;
-	/**width: 214px;*/
-	height: 50px;
-	background-repeat: no-repeat;
-	background-position: top right;
-	font-size: 15px;
+	font-size: 1.5em;
+	font-weight: lighter;
+	text-align: center;
 	text-decoration: none;
 	color: #fff;
 	text-transform: uppercase;
-	padding: 12px 0px 0px 20px;
+	padding: 10px;
 }
 .quickNav .blue a  {
-	background-image: url(../images/blueBox.jpg);
+	/*background-image: url(../images/blueBox.jpg);*/
 }
 .quickNav .orange a {
-	background-image: url(../images/darkOrangeBox.jpg);
+	/*background-image: url(../images/darkOrangeBox.jpg);*/
 }
 .quickNav .green a {
-	background-image: url(../images/greenBox.jpg);
+	/*background-image: url(../images/greenBox.jpg);*/
 }
 .quickNav .description {
 	margin: 0px;
-	font-weight: bold;
-	font-size: 14px;
-	line-height: 20px;
 	color: #fff;
-	background-color: #038ae1;
-	width: 179px;
+	background-color: #75903b;
+	width: 100%;
 	padding: 60px 20px 0px 15px;
 	overflow: hidden;
 	right: 0px;
@@ -282,21 +272,23 @@ td, th{
 	top: -6px;
 	z-index: -1;
 	height: 0;
+	border-radius: 4px;
 }
 .quickNav .orange .description {
-	background-color: #c0592a;
+	background-color: #d85e3d;
 }
 .quickNav .green .description {
-	background-color: #508f3f;
+	background-color: #6fbca4;
 }
 .quote .field-content{
 	background-image: url(/files/typography/quote_open_bg.png);
 	background-repeat: no-repeat;
 }
 .quote .quote-content{
-   font-size: 22px;
-   line-height: 30px;
+   font-size: 1.5em;
+   line-height: 1.5em;
    text-align: left;
+   font-weight: 300;
 }
 .quote .quote-credit{
    clear: both;
@@ -405,34 +397,6 @@ td, th{
 	font-size: 14px;
 	line-height: 18px;
 }
-.side-block .block-title {
-	display: block;
-	height: 42px;
-  /** this image is the default (blue) */
-  background-image: url(../images/darkBlueBox.jpg);
-	background-repeat: no-repeat;
-	padding: 11px 0px 0px 24px;
-  margin-top: 0;
-	font-size: 14px;
-	color: #fff;
-	text-transform: uppercase;
-	font-weight: bold;
-}
-.side-block .block-title a {
-	color: #fff;
-}
-.side-block .block-inner {
-	margin: 0;
-}
-.side-block.orange {
-	background-color: #f8e276;
-}
-.side-block.orange .block-title {
-  background-image: url(../images/yellowBox.jpg);
-}
-.side-block.blue .block-title {
-	background-image: url(../images/darkBlueBoxNew.jpg);
-}
 
 #footer .block-menu-block {
 	float: left;
@@ -478,18 +442,74 @@ td, th{
 #main-content .node-slideshow .node-content {
 	margin: 0 0 30px;
 }
+.view .item-list ul li {
+	list-style: none;
+	margin-left: 0px;
+}
+
+/*
+ * ============================== Titles =======================
+ */
+ .pane-title.block-title{
+	font-size: 2em;
+}
+.ptw-b #page-title,
+#page-title,
+h1{
+	font-weight: 300;
+	font-size: 2.2em;
+}
+.bta-l .block-title,
+.block-title{
+	margin-bottom: 10px;
+	background-color: transparent;
+	font-weight: 300;
+	font-size: 1.7em;
+}
+.side-block .block-title{
+	font-size: 1.2em;
+}
+.block-title a{
+	color: inherit;
+}
+/*----------------------------------------------------------*/
+
+/*
+ * ============================== Side Block Titles =======================
+ */
+.side-block .block-title {
+	height: auto;
+	padding: 10px 0px 10px 24px;
+  	margin-top: 0;
+	color: #FFF;
+	background-color: #375e7c;
+	background-image: none;
+	border-bottom: 5px solid #6fbca4;
+}
+.side-block .block-title a {
+	color: #fff;
+}
+.side-block .block-inner {
+	margin: 0;
+}
+.side-block.orange {
+	background-color: #f8e276;
+}
+.side-block.orange .block-title {
+  background-image: url(../images/yellowBox.jpg);
+}
+.side-block.blue .block-title {
+	background-image: url(../images/darkBlueBoxNew.jpg);
+}
+/*----------------------------------------------------------*/
 
 
+/************* More Links ***************/
 .more-link {
 	margin-top: 10px;
 	font-weight: bold;
 	text-align: center;
 	text-transform: capitalize;
-}
-
-.view .item-list ul li {
-	list-style: none;
-	margin-left: 0px;
 }
 .more-link a {
 	border: 1px solid #8c8a87;
@@ -503,21 +523,24 @@ td, th{
 }
 .more-link a:hover{
 	text-decoration: none;
+	background-color: #f2eee9;
+	color: #3f3e3d;
+}
+.blurb .more-link a:hover{
 	background-color: #FFFFFF;
-	background-color: rgba(255, 255, 255, 0.5);
-	color: #333333;
+	background-color: rgba(255, 255, 255, 0.5);	
 }
 /******************* Pager *********************/
 .pager li > a, 
 .pager li > span{
-	border-color: #3561b1;
-	color: #3561b1;
+	border-color: #375e7c;
+	color: #375e7c;
 	border-radius: 0px;
 	border-width: 1px;
 	font-weight: normal;
 }
 .pager li > a:hover{
-	background-color: #3561b1;	
+	background-color: #375e7c;	
 	color: #FFFFFF;
 }
 div.item-list ul.pager li:hover, 
@@ -559,7 +582,7 @@ a.flex-prev, a.flex-next{
 	border: 1px solid #F60;
 }
 .flexslider .flex-control-paging li a {
-	background: #F60;
+	background: #d85e3d;
 	border: 1px solid #fff;
 }
 /******************************************/
@@ -592,6 +615,11 @@ a.flex-prev, a.flex-next{
   height: auto;
   width: auto;
 }
+#content .panel-display,
+#content .panel-flexible {
+	margin-left: auto;
+	margin-right: auto;
+}
 .panel-display iframe {
   max-width: 80%;
 }
@@ -622,6 +650,9 @@ a.flex-prev, a.flex-next{
 }
 
 /** General jQueryUI customizations **/
+.ui-accordion{
+	width: 98%;
+}
 .ui-accordion-header a{
 	transition: color .5s;
 }
@@ -645,7 +676,6 @@ a.flex-prev, a.flex-next{
 	padding: .9em .9em .9em .3em;
 	border-radius:0px;
 	border:0px;
-	width: 98%;
 }
 .ui-accordion-header span{ 
 	position: absolute;
@@ -894,3 +924,40 @@ a.flex-prev, a.flex-next{
 /*
  * ===================================================================================
  */
+
+.dynamic-sub-menu{
+	max-width: 90%;
+	background-color: #f2eee9;
+} 
+.dynamic-sub-menu h2.pane-title.block-title{
+	background-color: #375e7c;
+	color: #FFF;
+	padding: 0px 10px;
+	margin: 0px;
+	font-size: 1.3em;
+	line-height: 2em;
+	font-weight: lighter;
+	letter-spacing: 1px;
+}
+.dynamic-sub-menu .menu{
+	margin-left: 0px;
+}
+.dynamic-sub-menu .menu li{
+	list-style: none;
+	line-height: 2em;
+	font-size: 1.2em;	
+	padding: 0px;
+	border-bottom: 1px solid #D6D2CD;
+}
+.dynamic-sub-menu .menu li a{
+	display: block;
+	padding: 0px 10px;
+	text-decoration: none;
+}
+.dynamic-sub-menu .menu li a:hover,
+.dynamic-sub-menu .active-sub-menu,
+.dynamic-sub-menu .active-sub-menu a{
+	background-color: #6fbca4;
+	color: #FFFFFF;
+	border-color: #6fbca4;
+}
