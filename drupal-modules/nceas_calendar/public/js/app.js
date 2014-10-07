@@ -10,9 +10,9 @@
   var cal = angular.module('NCEASCalendar', ['ui.calendar', 'ui.bootstrap']);
 
   cal.value('Colors', {
-    NEAD: '#3D933D',
-    DRUPAL: '#0D5EA2',
-    GOOGLE: '#9A3502'
+    NEAD: '#75903b',
+    DRUPAL: '#f26d43',
+    GOOGLE: '#6fbca4'
   });
 
   /**
@@ -79,7 +79,7 @@
 
       // Add tooltip that displays more info
       eventRender: function(event, element) {
-
+    	  
         // Build accessible event description string for screen readers
         var acc = "", content = "";
 

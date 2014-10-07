@@ -217,7 +217,7 @@ function _nceas_calendar_is_all_day($date1, $date2) {
   
 
 /**
- * Map drupal event nodes to format consistend with nceas_calendar_feed output
+ * Map drupal event nodes to format consistent with nceas_calendar_feed output
  */
 function _nceas_calendar_map_drupal_events($event) {
 
@@ -294,7 +294,8 @@ function nceas_calendar_get_events($start_date, $end_date) {
     $query->addField('a', 'activity_oid', 'id');
     $query->addField('a', 'start_date');
     $query->addField('a', 'end_date');
-    $query->addField('p', 'title');
+    $query->addField('a', 'name', 'title');
+    //$query->addField('p', 'title');
     $query->addField('p', 'project_oid', 'project_id');
 
     // Create Unix timestamp for start and end dates
