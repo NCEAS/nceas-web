@@ -25,7 +25,8 @@ if (window.location.hash != ""){
 }
 // If the URL has no hash, then use the ID of the very first accordion on the page 
 else{
-     hash = "#" + $( $(".ui-accordion-header")[0] ).attr("id");
+	// Take out this feature for now
+    // hash = "#" + $( $(".ui-accordion-header")[0] ).attr("id");
 }
 // Get the accordion that contains the section with that ID
 var hashItem = $(hash);
