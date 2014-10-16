@@ -1,5 +1,6 @@
 <script type="text/javascript">
-;(function($) {
+//;(function($) {
+jQuery( document ).ready(function( $ ) {
 function getQueryString(query) {
   // This function is anonymous, is executed immediately and 
   // the return value is assigned to QueryString!
@@ -29,15 +30,48 @@ function getQueryString(query) {
 var queryString = getQueryString();
 if(typeof queryString.id != "undefined")
 	displaySubPage(queryString.id);
+else{
+	//Display the default
+	var subPages = $(".dynamic-sub-page");
+	
+	if(subPages.length > 0){
+		//Display the first one by default
+		//Get its ID
+		var id = $(subPages[0]).attr("id");
+		
+		displaySubPage(id);
+		
+		//Make its corresponding menu item active
+		var links = $(".dynamic-sub-menu a");
+		for(var i=0; i<links.length; i++){
+			var href = $(links[i]).attr("href"),
+				href = href.substring(href.indexOf("?")+1);
+			
+			var idValue = getQueryString(href);
+			if((typeof idValue.id != "undefined") && (idValue.id == id)){
+				$(".dynamic-sub-menu").find("li").removeClass("active-sub-menu");
+				$(links[i]).parent().addClass("active-sub-menu");
+			}
+		}
+	}
+}
 
 $(".dynamic-sub-menu").find("a").on("click", function(e){
 	e.preventDefault();
+	
+	//Get the current page name
+	var page = window.location.pathname.substring(1);
 	
 	//Get the id
 	var link = e.target;
 	var href = $(link).attr("href");
 	var search = href.substring(href.indexOf("?")+1);
 	var linkQueryString = getQueryString(search);
+	
+	//Is this a link to a different page?
+	if((href.indexOf(page) == -1) && ((typeof linkQueryString.id == "undefined") || !linkQueryString.id)){
+		window.location = href;
+	}
 		
 	//Display this subpage
 	if(typeof linkQueryString.id != "undefined")
@@ -50,10 +84,21 @@ $(".dynamic-sub-menu").find("a").on("click", function(e){
 function displaySubPage(id){
 	$('.dynamic-sub-page').css("display", "none");
 	
+	
+	//Display items with the id and class of that name, may be either one
 	if(typeof id != "undefined"){
 		$('#' + id).css("display", "block");
+		$('.dynamic-sub-page.' + id).css("display", "block");
 	}
 }
 
-}) (jQuery);
+function subPageExists(id){
+	if(typeof id != "undefined"){
+		if($('#' + id).length > 0) return true;
+		else return false;
+	}
+}
+
+});
+//}) (jQuery);
 </script>

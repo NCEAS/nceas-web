@@ -676,6 +676,7 @@ a.flex-prev, a.flex-next{
 	padding: .9em .9em .9em .3em;
 	border-radius:0px;
 	border:0px;
+	background-position-x: 0px;
 }
 .ui-accordion-header span{ 
 	position: absolute;
@@ -930,14 +931,17 @@ a.flex-prev, a.flex-next{
 	background-color: #f2eee9;
 } 
 .dynamic-sub-menu h2.pane-title.block-title{
-	background-color: #375e7c;
-	color: #FFF;
+	display: none;
+}
+.dynamic-sub-menu .menu > .menu-depth-1 > a{
+	background-color: #D3CEC7;
 	padding: 0px 10px;
 	margin: 0px;
-	font-size: 1.3em;
+	font-size: 1.1em;
 	line-height: 2em;
-	font-weight: lighter;
-	letter-spacing: 1px;
+	font-weight: 400;
+	color: #363533;
+	border-bottom: 1px solid #FFF;
 }
 .dynamic-sub-menu .menu{
 	margin-left: 0px;
@@ -945,17 +949,24 @@ a.flex-prev, a.flex-next{
 .dynamic-sub-menu .menu li{
 	list-style: none;
 	line-height: 2em;
-	font-size: 1.2em;	
+	font-size: 1.1em;	
 	padding: 0px;
-	border-bottom: 1px solid #D6D2CD;
+	/*border-bottom: 1px solid #D6D2CD;*/
 }
 .dynamic-sub-menu .menu li a{
 	display: block;
 	padding: 0px 10px;
 	text-decoration: none;
 }
+.dynamic-sub-menu .menu .menu li a { /* Sub-menus */
+	font-size: .9em;
+	color: #375e7c;
+}
+.dynamic-sub-menu .menu .menu li.active-sub-menu a{
+	color: #FFF;
+}
 .dynamic-sub-menu .menu li a:hover,
-.dynamic-sub-menu .active-sub-menu,
+.dynamic-sub-menu .menu > .active-sub-menu.menu-depth-1 > a,
 .dynamic-sub-menu .active-sub-menu a{
 	background-color: #6fbca4;
 	color: #FFFFFF;
