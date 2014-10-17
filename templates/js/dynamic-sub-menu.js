@@ -27,6 +27,9 @@ function getQueryString(query) {
 } 
 
 //When page initially loads get the query string and display the subpages
+//Give each panel pane on the right side of this particular layout (only one compatible with this menu at this point) a distinguishing class
+$(".region-two-33-66-second").find(".panel-pane").addClass("dynamic-sub-page");
+
 var queryString = getQueryString();
 if(typeof queryString.id != "undefined")
 	displaySubPage(queryString.id);
@@ -43,6 +46,7 @@ else{
 		
 		//Make its corresponding menu item active
 		var links = $(".dynamic-sub-menu a");
+		$(links).removeClass("active");
 		for(var i=0; i<links.length; i++){
 			var href = $(links[i]).attr("href"),
 				href = href.substring(href.indexOf("?")+1);
