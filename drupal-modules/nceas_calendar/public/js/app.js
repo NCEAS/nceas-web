@@ -72,6 +72,7 @@
 
           $http.get('/calendar/events/' + source + '/' + start + '/' + end)
             .success(complete);
+
         };
       };
 
@@ -124,7 +125,7 @@
       };
 
       $scope.google = {
-        url: 'https://www.google.com/calendar/feeds/k5ou8sf39esk17b0ovlujarvj8%40group.calendar.google.com/public/basic',
+        url: 'https://www.googleapis.com/calendar/v3/calendars/k5ou8sf39esk17b0ovlujarvj8%40group.calendar.google.com/events?key=AIzaSyD0X7lRFDKgZYGRzuH0Q2NEzhzjLWyp_jQ',
         color: Colors.GOOGLE,
         textColor: 'white'
       };
