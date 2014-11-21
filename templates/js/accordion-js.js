@@ -9,7 +9,7 @@
  */
 
 
-;(function($) {
+jQuery( document ).ready(function( $ ) {
 
 // Initialize the accordions with all sections closed
 $( ".accordions" ).accordion({
@@ -19,7 +19,7 @@ $( ".accordions" ).accordion({
    });
 
 // Get the hash from the URL 
-var hash;
+var hash = "";
 if (window.location.hash != ""){ 
      hash = window.location.hash;
 }
@@ -35,9 +35,10 @@ var containingAccordion =  $(hash).parent();
 var index = $(containingAccordion).find(".ui-accordion-header").index(hashItem);
 // Now open that accordion section
 $(containingAccordion).accordion("option", "active", index);
+location.hash = hash;
 
 
 // Initialize all the jQueryUI buttons
 $( ".buttonLinks" ).button();
 
- }) (jQuery);
+});

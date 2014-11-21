@@ -484,7 +484,7 @@ h1{
 	color: #FFF;
 	background-color: #375e7c;
 	background-image: none;
-	border-bottom: 5px solid #6fbca4;
+	border-bottom: 3px solid #6fbca4;
 }
 .side-block .block-title a {
 	color: #fff;
@@ -772,7 +772,7 @@ a.flex-prev, a.flex-next{
  */
 .blurb{
 	margin-bottom: 20px;
-	max-width: 300px;
+	width: 300px;
 }
 .blurb-image{
 	margin: 0;
@@ -845,6 +845,22 @@ a.flex-prev, a.flex-next{
 	color: #333333;
 }
 /*
+ * ===================================================================================
+ */
+ 
+ /*
+ * ============================== Article Blurbs -> Three Column to Two Column (when in 33% 66% Page) ===================================
+ */
+ .region-two-33-66-second .panel-pane .three-col:nth-child(2n){
+ 	clear: right;
+ }
+ .region-two-33-66-second .panel-pane .three-col:nth-child(2n+1){
+ 	clear: left;
+ }
+ .region-two-33-66-second .panel-pane .three-col{
+ 	width: 45%;
+ }
+ /*
  * ===================================================================================
  */
 
@@ -974,3 +990,15 @@ a.flex-prev, a.flex-next{
 	color: #FFFFFF;
 	border-color: #568F7D;
 }
+
+/*
+ * ============================== Featured blurbs ===========================================
+ */
+ .header-image{
+ 	max-width: 960px;
+ 	overflow: hidden;
+ }
+ 
+ /*
+ * =============================================================================================
+ */

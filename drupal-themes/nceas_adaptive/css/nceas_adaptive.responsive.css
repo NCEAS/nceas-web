@@ -73,3 +73,8 @@
 		font-size: 14px;
 	}
 }
+
+/**** Should cover most mobile phone widths in portrait mode *****/
+@media all and (max-width: 400px) {
+	
+}
