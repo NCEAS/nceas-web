@@ -77,7 +77,7 @@
       };
 
     $scope.options = {
-
+    
       // Add tooltip that displays more info
       eventRender: function(event, element) {
     	  
@@ -109,6 +109,8 @@
           trigger: 'hover'
         });
       },
+     
+      
       weekMode : "liquid" 
     };
 
@@ -125,7 +127,8 @@
       };
 
       $scope.google = {
-        url: 'https://www.googleapis.com/calendar/v3/calendars/k5ou8sf39esk17b0ovlujarvj8%40group.calendar.google.com/events?key=AIzaSyD0X7lRFDKgZYGRzuH0Q2NEzhzjLWyp_jQ',
+        googleCalendarId: 'k5ou8sf39esk17b0ovlujarvj8@group.calendar.google.com',
+        googleCalendarApiKey: "AIzaSyD0X7lRFDKgZYGRzuH0Q2NEzhzjLWyp_jQ",
         color: Colors.GOOGLE,
         textColor: 'white'
       };
