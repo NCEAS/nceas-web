@@ -68,11 +68,43 @@ input[type=radio] {
  * ========================================================================================
  */
 
+.block{
+	margin-bottom: 20px;
+}
 a:hover{
 	text-decoration: none;	
 }
 td, th{
 	padding: .375em .5em;
+}
+.right{
+	float: right;
+}
+.half{
+	width: 50%;
+}
+.left.half{
+	width: 48%;
+	margin-right: 2%;
+}
+.left{
+	float: left;
+}
+.double-space-below{
+	margin-bottom: 40px;
+}
+.img-caption{
+	font-size: .8em;
+	text-align: center;
+}
+.highlight-box{
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 10px; 
+	border-radius: 4px; 
+	-webkit-border-radius: 4px; 
+	-moz-border-radius: 4px; 
+	border: 1px solid #999; 
+	margin-bottom: 20px;	
 }
 #branding {
 	width: 100%;
@@ -474,6 +506,10 @@ h1{
 }
 /*----------------------------------------------------------*/
 
+tr.odd, tr.info{
+	background-color: #F5F3F1;	
+}
+
 /*
  * ============================== Side Block Titles =======================
  */
@@ -506,13 +542,13 @@ h1{
 
 /************* More Links ***************/
 .more-link {
-	margin-top: 10px;
 	font-weight: bold;
 	text-align: center;
 	text-transform: capitalize;
 }
 .more-link a {
 	border: 1px solid #8c8a87;
+	background-color: rgba(255,255,255,0.5);
 	color: #8c8a87;
 	padding: 10px;
 	margin-top: 10px;
@@ -529,6 +565,16 @@ h1{
 .blurb .more-link a:hover{
 	background-color: #FFFFFF;
 	background-color: rgba(255, 255, 255, 0.5);	
+}
+/** For stand-out links **/
+.more-link.important,
+.more-link a.important{
+	color: #d85e3d;
+	border-color: #d85e3d;
+}
+.more-link.important a:hover,
+.more-link a.important:hover{
+	background-color: #F7E9E6;
 }
 /******************* Pager *********************/
 .pager li > a, 
@@ -765,7 +811,21 @@ a.flex-prev, a.flex-next{
 /*
  * ===================================================================================
  */
-
+ 
+ /*
+ * ========================= Sidebars, Styled like blurbs ======================================
+ */
+.sidebar{
+ 	background-color: #f2eee9;
+ 	padding: 10px 20px;
+ 	border-radius: 4px;
+ 	-moz-border-radius: 4px;
+ 	-webkit-border-radius: 4px;
+ }
+/*
+ * ===================================================================================
+ */
+ 
 
 /*
  * ============================== Article blurbs ===========================================
@@ -863,6 +923,7 @@ a.flex-prev, a.flex-next{
  /*
  * ===================================================================================
  */
+
 
 /*
  * ============================== Featured blurbs ===========================================
