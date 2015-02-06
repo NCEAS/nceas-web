@@ -7,19 +7,10 @@
 * 2015  
 *************************************/
 
-
-// Check if a slider/slideshow is on this page and make sure it has started (i.e. all images are hidden).
-jQuery(document).ready(function($) {
-
-	(function startSlider(){
-		$(window).load(function(){
-			//Is there a slider on this page?
-			var flexslider = $(".flexslider");
-			if(!flexslider.length) return;
-			
-			var slides = $(flexslider).find("li");
-			if(slides.length) $(slides[0]).addClass("flex-active-slide").css("opacity", 1);
-		})
-	}());
-
+jQuery(window).load(function(){
+	
+	//Make sure the flexslider is loaded.... there is a bug in the Flexslider module
+	var $ = jQuery;
+	$(".flexslider").flexslider();
+	
 });
