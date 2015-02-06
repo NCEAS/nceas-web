@@ -73,7 +73,7 @@
 
 scripts[] = js/responsive-menu.js
 scripts[] = js/bootstrap-popovers.min.js
-  
+scripts[] = js/include.js  
   
   
  ;----------// Regions
