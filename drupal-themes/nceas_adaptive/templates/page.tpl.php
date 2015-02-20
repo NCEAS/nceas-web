@@ -2,59 +2,48 @@
   <div class="container">
 
     <?php if ($site_logo || $site_name || $site_slogan): ?>
-      <!-- start: Branding -->
-      <div id="branding">
-      	
-      </div><!-- /end #branding -->
-
-        <div class='col span_8'>
-          <?php if ($site_logo): ?>
-            <div id="logo">
-              <?php print $site_logo; ?>
-            </div>
-          <?php endif; ?>
-
-          <?php if ($site_name || $site_slogan): ?>
-            <!-- start: Site name and Slogan hgroup -->
-            <hgroup id="name-and-slogan"<?php print $hgroup_attributes; ?>>
-
-              <?php if ($site_name): ?>
-                <h1 id="site-name"<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
-              <?php endif; ?>
-
-              <?php if ($site_slogan): ?>
-                <h2 id="site-slogan"<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
-              <?php endif; ?>
-
-            </hgroup><!-- /end #name-and-slogan -->
-          <?php endif; ?>
-        </div>
-
-        <div class='col span_4'>
-          <?php if(!empty($page['header'])): ?>
-            <div id='nceas-header' class='row'>
-              <?php print render($page['header']); // Header region ?>
-            </div>
-          <?php endif; ?>
-        </div>
-
+		<div class="inner-container">
+	          <?php if ($site_logo): ?>
+	            <div id="logo">
+	              <?php print $site_logo; ?>
+	            </div>
+	          <?php endif; ?>
+	
+	          <?php if ($site_name || $site_slogan): ?>
+	            <!-- start: Site name and Slogan hgroup -->
+	            <hgroup id="name-and-slogan"<?php print $hgroup_attributes; ?>>
+	
+	              <?php if ($site_name): ?>
+	                <h1 id="site-name"<?php print $site_name_attributes; ?>><?php print $site_name; ?></h1>
+	              <?php endif; ?>
+	
+	              <?php if ($site_slogan): ?>
+	                <h2 id="site-slogan"<?php print $site_slogan_attributes; ?>><?php print $site_slogan; ?></h2>
+	              <?php endif; ?>
+	
+	            </hgroup><!-- /end #name-and-slogan -->
+	          <?php endif; ?>
+	          <?php if(!empty($page['header'])): ?>
+              	<div id='nceas-header' class='row'>
+              		<?php print render($page['header']); // Header region ?>
+            	</div>
+          	  <?php endif; ?>
+	    </div>
      
     <?php endif; ?>
+    
+    <?php if(!empty($page['menu_bar'])): ?>
+      <nav id='nceas-menu' class='row'>
+          <?php print render($page['menu_bar']); ?>
+      </nav>
+    <?php endif; ?>
+
   </div>
 
 </header> <!-- /header -->
 
 <div class="texture-overlay">
   <div id="page" class="container <?php print $classes; ?>">
-
-    <?php if(!empty($page['menu_bar'])): ?>
-      <nav id='nceas-menu' class='row'>
-        <div class='col span_12'>
-          <?php print render($page['menu_bar']); ?>
-        </div>
-      </nav>
-    <?php endif; ?>
-
     <!-- Messages and Help -->
     <?php print $messages; ?>
     <?php print render($page['help']); ?>
@@ -82,7 +71,7 @@
     <?php endif; ?>
 
     <div id="columns">
-      <div class="columns-inner clearfix">
+      <div class="columns-inner clearfix inner-container">
 
         <div id="content-column">
           <div class="content-inner">
@@ -165,7 +154,7 @@
     <?php endif; ?>
 
     <?php if ($page['footer']): ?>
-      <footer id="footer" role="contentinfo">
+      <footer id="footer" role="contentinfo" class="inner-container">
         <div id="footer-inner" class="clearfix">
           <?php print render($page['footer']); // Footer region ?>
         </div>

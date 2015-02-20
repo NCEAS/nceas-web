@@ -64,6 +64,10 @@
 		background: green;
 	}
 
+	#footer{
+		max-width: 960px;
+		margin: 0px auto;
+	}
 	#footer .block-menu-block {
 		max-width: 100%;
 		clear: both;
