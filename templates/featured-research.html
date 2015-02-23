@@ -8,8 +8,10 @@
 <li>Choose a background image and add it to the CSS. Try to use the image that is already associated with that node. Check that it looks okay.</li>
 <li>Choose a background color to go on top of the background-image and add it to the CSS.</li>
 <li>Choose a text color that looks okay on top of that background-image and add it to the CSS. (Probably white or black)</li>
-<li>If the background image is dark, add the "light" class to the buttons so their colors are lightened up a bit.</li>
+<li>If the background image is dark, add the "light" class to the buttons so their colors are lightened up a bit and lighten up the regular link colors by using the "a" CSS rules below.</li>
 </ul>
+
+
 <h2>HTML</h2>
 <xmp>
 <p>Wrap main content in p tags, like usual</p>
@@ -18,6 +20,7 @@
 <a class="btn" href="...">More information about this project button</a>
 <a class="btn light" href="...">Use the 'light' class when the button is on a dark background.</a>
 </xmp>
+
 
 <h2>CSS</h2>
 <p>
@@ -40,7 +43,15 @@ Note: Keep the alpha (transparency) value intact in the rgba() rules; only repla
 	background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
 	background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
 	background: radial-gradient(ellipse at center, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
-	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );	
+}
+
+/* Use this CSS rule when the background is dark. It lightens up the color of the links. */
+a:link, 
+a:visited, 
+a:active, 
+a.active, 
+a{
+     color: rgb(139, 187, 223);
 }
 </xmp>
