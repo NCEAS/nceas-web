@@ -1,0 +1,46 @@
+<h1>Featured Research Style Guide</h1>
+
+<h2>Steps</h2>
+<ul>
+<li>Move the subtitle from the Body to the new Subtitle field</li>
+<li>Add the "footnote" class to any disclaimer/small-print/footnote paragraphs</li>
+<li>Add the "btn" class to the links.</li>
+<li>Choose a background image and add it to the CSS. Try to use the image that is already associated with that node. Check that it looks okay.</li>
+<li>Choose a background color to go on top of the background-image and add it to the CSS.</li>
+<li>Choose a text color that looks okay on top of that background-image and add it to the CSS. (Probably white or black)</li>
+<li>If the background image is dark, add the "light" class to the buttons so their colors are lightened up a bit.</li>
+</ul>
+<h2>HTML</h2>
+<xmp>
+<p>Wrap main content in p tags, like usual</p>
+<p class="footnote">Give the 'footnote' class to paragraphs that need to be small and in italics.</p>
+
+<a class="btn" href="...">More information about this project button</a>
+<a class="btn light" href="...">Use the 'light' class when the button is on a dark background.</a>
+</xmp>
+
+<h2>CSS</h2>
+<p>
+There are two custom CSS rules to appy. The #columns container will hold the background-image, so replace that with the path to the background image.
+The .columns-inner container will hold the colored background gradient that overlays on top the image so that the text is more legible. The example below
+is for a black gradient. To use a different color, just replace the color in the CSS rules below. Use RGB form in the "background" rules and the hex code in the IE "filter" rule. Try <a href="http://www.colorpicker.com/"> ColorPicker.com.</a>
+Note: Keep the alpha (transparency) value intact in the rgba() rules; only replace the first three (RGB) values.
+</p>
+<xmp>
+#columns{
+     background-image: url('/files/jungle-1340466209nfD.jpg');
+     color: white; /* Choose the text color based on what shows up against the photo background */
+}
+.columns-inner{
+	/* This example is for black. Replace the X's in the rgba(X,X,X,Y) pattern for a different color. */
+	background: rgba(0,0,0,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(44%, rgba(0,0,0,1)), color-stop(48%, rgba(0,0,0,0.93)), color-stop(100%, rgba(0,0,0,0)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: radial-gradient(ellipse at center, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+	
+}
+</xmp>
