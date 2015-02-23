@@ -1199,7 +1199,7 @@ a.flex-prev, a.flex-next{
  */
  .node-type-featured #columns{
  	min-height: 700px;
- 	height: 700px;
+ 	background-size: cover;
  }
  .node-type-featured .columns-inner{
 	height: 100%;
