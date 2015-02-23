@@ -96,8 +96,9 @@ a:link, a:visited, a:active, a.active, a{
 a:hover{
 	text-decoration: none;	
 }
-.light p{
+.light{
 	font-weight: lighter;
+	color: #FFF;
 }
 .light a:link, 
 .light a:visited, 
@@ -528,7 +529,10 @@ td, th{
 	display: inline-block;
 	text-align: left;
 }
-
+.footnote{
+	font-size: .9em;
+	font-style: italic;
+}
 #main-content .node-slideshow {
 	margin-bottom: 0;
 }
@@ -553,9 +557,12 @@ td, th{
 .ptw-b #page-title,
 #page-title,
 h1{
-	font-weight: 100;
+	font-weight: 200;
 	font-size: 2.2em;
 	margin-bottom: 0px;
+}
+.light #page-title{
+	font-weight: 100;
 }
 .logged-in #page-title{
 	margin-bottom: 10px;
@@ -660,7 +667,8 @@ a.btn{
 	padding: 10px;
 	font-weight: bold;
 }
-a.btn.light{
+a.btn.light,
+.light a.btn{
 	border-color: rgb(139, 187, 223);
 	color: rgb(139, 187, 223);
 }
@@ -669,7 +677,8 @@ a.btn:hover{
 	background-color: #E9F6FF;
 	background-color: rgba(55, 94, 124, 0.08);
 }
-a.btn.light:hover{
+a.btn.light:hover,
+.light a.btn:hover{
 	background-color: rgba(255,255,255,0.1);
 	color: rgb(201, 232, 255);	
 }
@@ -1182,5 +1191,41 @@ a.flex-prev, a.flex-next{
 	margin: -1px 0 -1px 0;
 }
 /*
+ * =============================================================================================
+ */
+ 
+  /*
+ * ============================== Featured Research / Working Group pages ===========================================
+ */
+ .node-type-featured #columns{
+ 	min-height: 700px;
+ 	height: 700px;
+ }
+ .node-type-featured .columns-inner{
+	background: rgba(0,0,0,1);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(44%, rgba(0,0,0,1)), color-stop(48%, rgba(0,0,0,0.93)), color-stop(100%, rgba(0,0,0,0)));
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	background: radial-gradient(ellipse at center, rgba(0,0,0,1) 44%, rgba(0,0,0,0.93) 48%, rgba(0,0,0,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+	height: 100%;
+ }
+  .node-type-featured.page-node-edit .columns-inner{
+  	background: transparent;
+  }
+ .node-type-featured #page-title:before{
+ 	content: "Working Group";
+ 	display: block;
+ 	font-size: .5em;
+ 	color: #CCC;
+ 	font-style: italic;
+ 	margin-bottom: 5px;
+ }
+ .node-type-featured p{
+ 	line-height: 1.5em;
+ }
+ /*
  * =============================================================================================
  */
