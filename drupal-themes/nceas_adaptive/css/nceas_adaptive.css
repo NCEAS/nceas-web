@@ -67,8 +67,7 @@ input[type=radio] {
 
 }
 .side-by-side select{
-	min-width: 228px;
-	max-width: 84%;
+	max-width: 86%;
 	float: left;
 	height: 3em;
 	font-size: .9em;
@@ -80,7 +79,7 @@ input[type=radio] {
 	max-width: 37px;
 	max-width: calc(15% - 5px);
 	font-size: 1em;
-	padding: 0px;
+	padding: 5px;
 }
 /*
  * ========================================================================================
@@ -90,8 +89,8 @@ input[type=radio] {
 	margin-bottom: 40px;
 }
 a:link, a:visited, a:active, a.active, a{
-	color: #2D5370;
-	color: rgb(55, 94, 124);
+	color: #1e74b6;
+	color: rgb(30, 116, 182);
 }
 a:hover{
 	text-decoration: none;	
@@ -145,6 +144,13 @@ td, th{
 .inline-title{
 	font-weight: bold;
 	display: inline;
+}
+/* The alert message that displays at the top of unpublished nodes */
+p.unpublished{
+	font-size: 1.5em;
+	color: rgb(83, 0, 0);
+	background-color: rgb(255, 203, 203);
+	text-align: center;
 }
 .join-with-previous{
 	margin-top: -40px;
@@ -297,7 +303,7 @@ td, th{
 #nceas-menu #menu-bar ul.menu li a:hover, #nceas-menu #menu-bar ul.menu li a.active {
 	/*background-image: url(/files/images/greenBox.png);
 	background-repeat: no-repeat;*/
-	background-color: #6fbca4;
+	background-color: #4888B9;
 }
 
 #block-search-form{
@@ -965,7 +971,7 @@ a.flex-prev, a.flex-next{
 	position: absolute;
 	top: 20px;
 	left: 20px;
-	width: 255px;
+	width: 80%;
 	background-color: rgb(40,39,39);
 	background-color: rgba(40,39,39, 0.7);
 }
@@ -1165,17 +1171,6 @@ a.flex-prev, a.flex-next{
 	border-color: #568F7D;
 }
 
-/*
- * ============================== Featured blurbs ===========================================
- */
- .header-image{
- 	max-width: 960px;
- 	overflow: hidden;
- }
- 
- /*
- * =============================================================================================
- */
  
  
  /*
