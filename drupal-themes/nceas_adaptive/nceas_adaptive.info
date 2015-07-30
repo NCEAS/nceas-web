@@ -38,6 +38,7 @@
   stylesheets[all][] = fonts/font-awesome/css/font-awesome.min.css
   stylesheets[all][] = css/nceas_adaptive.css
   stylesheets[all][] = css/nceas_adaptive.responsive.css
+  stylesheets[all][] = css/lightbox/lightbox.css
 
   ; Internet Explorer Stylesheets
   ;
@@ -73,6 +74,7 @@
 
 scripts[] = js/responsive-menu.js
 scripts[] = js/bootstrap-popovers.min.js
+scripts[] = js/lightbox.min.js
 scripts[] = js/include.js  
   
   
