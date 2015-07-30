@@ -255,10 +255,21 @@ p.unpublished{
 	font-size: 12px;
 	line-height: 17px;
 }
-.subscribe img {
-	display: inline-block;
-	vertical-align: middle;
-	margin: 0px 4px;
+.subscribe .icon{
+	font-size: 2em;
+  	color: rgb(83, 136, 177);
+}
+.subscribe .icon:hover{
+	color: rgb(37, 117, 179);
+}
+.subscribe img.icon{
+	vertical-align: top;
+}
+#logo .featured-img{
+	height: 100px;
+  	left: -49px;
+  	top: 8px;
+  	position: relative;
 }
 #nceas-menu #menu-bar {
 	background-color: #2D5370;
@@ -321,11 +332,15 @@ p.unpublished{
 	background-color: #4888B9;
 }
 
-#block-search-form{
+.region-header #block-search-form{
 	clear: left;
+	margin: 0px;
 }
 #block-search-form .form-wrapper, #block-search-form .form-actions {
 	display: none;
+}
+.site-logo{
+	height: 95px;
 }
 
 #nceas-header .block-inner {
@@ -338,10 +353,6 @@ p.unpublished{
 .mainContent {
 	float: left;
 	border-right: #aab090 1px solid;
-}
-.caption {
-	position: absolute;
-	bottom: 10px;
 }
 .quickNav {
 	height: 55px;
@@ -389,7 +400,7 @@ p.unpublished{
 	border-radius: 4px;
 }
 .quickNav .orange .description {
-	background-color: #d85e3d;
+	background-color: #f37229;
 }
 .quickNav .green .description {
 	background-color: #6fbca4;
@@ -630,13 +641,15 @@ tr.odd, tr.info{
 
 
 /************* More Links ***************/
-.more-link {
+.more-link, 
+.node-readmore > a{
 	font-weight: bold;
 	text-align: center;
 	text-transform: capitalize;
 }
 .more-link a,
-a.more-link {
+a.more-link,
+.node-readmore > a{
 	border: 1px solid #8c8a87;
 	background-color: rgba(255,255,255,0.5);
 	border-radius: 2px;
@@ -651,7 +664,8 @@ a.more-link {
 	display: inline-block;
 }
 .more-link a:hover,
-a.more-link:hover{
+a.more-link:hover,
+.node-readmore > a:hover{
 	text-decoration: none;
 	background-color: #f2eee9;
 	color: #3f3e3d;
@@ -676,6 +690,15 @@ a.more-link:hover{
 .more-link a.important:hover,
 .btn.important:hover{
 	background-color: #F7E9E6;
+}
+/** Inline list of links by Drupal **/
+.block .links.inline {
+  margin-bottom: 10px;
+  display: block;
+  float: right;
+  clear: both;
+  /* height: auto; */
+  /* min-height: 1em; */
 }
 /******************* Buttons *********************/
 a.btn{
@@ -782,15 +805,53 @@ a.flex-prev, a.flex-next{
  * Media
  */
 
-.views-field-field-icon {
+.view-media .icon {
 	float: left;
-	margin-right: 30px;
+	margin-right: 20px;
 }
-.views-field-field-icon img {
+.view-media .icon img {
   max-width: 50px;
   max-height: 50px;
   height: auto;
   width: auto;
+  opacity: .6;
+}
+.view-media .icon > .caption,
+.view-media .icon > a > .caption{
+  position: relative;
+  bottom: 0px;
+  font-size: .9em;
+  color: #666;
+  line-height: 3em;
+  text-align: center;
+}
+.view-media .media-youtube-video{
+	margin-top: 20px;
+	height: auto;
+	width: 100%;
+	float: none;
+	clear: both;
+}
+.view-media .more-link{
+  width: 200px;
+  margin-left: auto;
+  display: block;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.view-media .Radio .file > a,
+.view-media .Podcast .file > a, /* Don't display the bare link to the radio and podcast mp3's */
+.view-media .Video .more-link { /* Don't display the Listen Now link for videos */
+  display: none;
+}
+.vocabulary-media .field-name-field-icon figure {
+  border: 0px;
+}
+.vocabulary-media .field-name-field-icon figure > img{
+	max-width: 75px;
+}
+.vocabulary-media ~ .nodes .node {
+  border-bottom: 1px solid #CCC;
 }
 #content .panel-display,
 #content .panel-flexible {
@@ -800,8 +861,39 @@ a.flex-prev, a.flex-next{
 .panel-display iframe {
   max-width: 80%;
 }
-.view-id-media .views-row {
+.view-media .views-row {
   margin-bottom: 30px;
+}
+.view-media h2 {
+  font-size: 1.3em;
+  font-weight: normal;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.view-header > .inline-menu .icon{
+    height: 1.3em;
+    display: inline;
+    margin-right: 5px;
+}
+.view-header > .inline-menu > a{
+    float: left;
+    margin-right: 20px;
+    line-height: 1.3em;
+    height: 2em;
+
+}
+.view-header > .inline-menu{
+    clear: both;
+    display: block;
+    float: none;
+    height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;    
+    margin-bottom: 20px
+}
+.view-display-id-page > .view-header > .inline-menu > a{
+	font-size: 1.3em;
 }
 
 /* Hide the "Submitted by" information when not logged in */
@@ -1217,6 +1309,8 @@ a.flex-prev, a.flex-next{
  }
  .node-type-featured .columns-inner{
 	height: 100%;
+	min-height: 700px;
+	padding: 20px;
  }
   .node-type-featured.page-node-edit .columns-inner{
   	background: transparent;
@@ -1235,6 +1329,12 @@ a.flex-prev, a.flex-next{
  .node-type-featured p{
  	line-height: 1.5em;
  }
- /*
- * =============================================================================================
+  /*
+ * ======================== FLOATING TABLE OF CONTENTS ===============================================
  */
+ .table-of-contents{
+position: fixed;
+  right: 25px;
+  top: 229px;
+  z-index: 5;
+}

@@ -144,3 +144,11 @@
   }
 }
 
+/* Only display these styles on larger resolutions */
+@media all and (max-width: 1400px){
+	.table-of-contents{
+		position: relative;
+		top: 0px;
+	}
+}
+
