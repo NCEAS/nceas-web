@@ -10,7 +10,8 @@ $plugin = array(
   'regions' => array(
   	'promo' => t('Promo'),
   	'bottom_left' => t('Bottom Left'),
-    'bottom_center' => t('Bottom Center'),
-    'sidebar' => t('Sidebar')
+    'bottom_center' => t('Bottom Column'),
+    'sidebar' => t('Sidebar'),
+  	'bottom_footer' => t('Bottom Footer')
   )
 );

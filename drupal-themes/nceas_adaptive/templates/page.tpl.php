@@ -1,5 +1,5 @@
 <header id="top" class="clearfix" role="banner">
-  <div class="container">
+  <div class="container change">
 
     <?php if ($site_logo || $site_name || $site_slogan): ?>
 		<div class="inner-container">
@@ -129,6 +129,7 @@
 
         <?php print render($page['sidebar_first']); // Sidebar first region ?>
         <?php print render($page['sidebar_second']); // Sidebar second region ?>
+        
 
       </div>
     </div> <!-- /columns -->

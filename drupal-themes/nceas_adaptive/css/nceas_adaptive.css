@@ -81,6 +81,9 @@ input[type=radio] {
 	font-size: 1em;
 	padding: 5px;
 }
+.btn~.btn{
+	margin-left: 10px;
+}
 /*
  * ============================== Headers ===========================================
  */
@@ -523,6 +526,8 @@ p.unpublished{
 	line-height: 18px;
 }
 #footer{
+	background-color: transparent;
+	background-image: none;
 	margin-top: 40px;
 }
 #footer .block-menu-block {
@@ -579,6 +584,111 @@ p.unpublished{
 #content .node-teaser{
 	padding: 0px;
 }
+.clearfix{
+clear: both;
+display: block;
+}
+
+/* ========= Horizontal List ========== */
+
+[class^="horiz-list-"]{
+margin-left: 0px;
+}
+.horiz-list-four li{
+   width: calc(25% - 10px);
+}
+.horiz-list-two li{
+   width: calc(50% - 10px);
+}
+.horiz-list-three li{
+   width: calc(33% - 10px);
+}
+[class^="horiz-list-"] li{
+   margin-right: 10px;
+   display: inline-block;
+   list-style: none;
+   float: left;
+}
+[class^="horiz-list-"] li img{
+   width: 100%;
+    margin: 0px auto 10px auto;
+    display: block;
+}
+.horiz-list-two li img{
+    width: 75%;
+}
+.horiz-list-
+[class^="horiz-list-"] li > h4{
+    text-align: center;
+}
+/*======== Horizontal Icon List ============== */
+.block .icon-list{
+    clear: both;
+    width: 30%;
+    margin: 0 auto;
+}
+.icon-list li{
+    font-size: 1.5em;
+    width: auto;
+}
+.icon-list.one{
+width: 30px;
+}
+.icon-list.two{
+   width: 60px;
+}
+.icon-list.three{
+    width: 90px;
+}
+.icon-list.four{
+    width: 120px;
+}
+.team-img li > p {
+  clear: both;
+  font-size: .9em;
+  color: #555;
+}
+/*======== Team Bios ============== */
+
+.team-img img{
+border-radius: 50%;
+float: left;
+display: inline-block;
+margin-right: 20px;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+.team-img h4,
+.team-img h5{
+     text-align: center;
+     clear: both;
+}
+.team-img .horiz-list-three li img{
+    width: 225px;
+    float: none;
+    margin-left: auto; margin-right: auto;
+}
+.team-img .horiz-list-two li img{
+   width: 250px;
+	float: none;
+    margin-left: auto; margin-right: auto;
+}
+
+.horiz-list-two .icon-list > li img,
+.horiz-list-three .icon-list > li img{
+height: 1em;
+  width: 1em;
+  margin-top: 5px;
+}
+.horiz-list-three > li:nth-child(3n){
+clear: right;
+}
+.horiz-list-three>li:nth-child(3n+1){
+clear: left;
+}
+.accordions h5{
+color: #555;
+}
 
 /*
  * ============================== Titles =======================
@@ -609,6 +719,12 @@ h1{
 }
 .block-title a{
 	color: inherit;
+}
+.sidebar .block-title{
+	font-size: 1.2em;
+}
+.sidebar .block-content h3{
+	font-size: 1em;
 }
 /*----------------------------------------------------------*/
 
@@ -1221,7 +1337,13 @@ a.flex-prev, a.flex-next{
 	display: block;
 	height: 115px;
 }
-
+.mini-blurb-list.varied-img .mini-blurb-image img,
+.mini-blurb-image.varied-img img{
+	max-width: 100%;
+	width: auto;
+	max-height: 115px;
+	height: auto;
+}
 .mini-blurb-content{
 	overflow-y: hidden;
 	line-height: 1.8em;
