@@ -106,7 +106,8 @@ input[type=radio] {
 	margin-bottom: 40px;
 }
 a:link, a:visited, a:active, a.active, a,
-li a:link, li a:visited, li a:active, li a.active, li a{
+li a:link, li a:visited, li a:active, li a.active, li a,
+.nav li a:link, .nav li a:visited, .nav li a:active, .nav li a.active, .nav li a{
 	color: #1e74b6;
 	color: rgb(30, 116, 182);
 }
@@ -485,6 +486,38 @@ p.unpublished{
 	color: #717367;
 }
 
+.navbar-nav{
+	background-color: #f2eee9;
+	margin-bottom: 20px;
+	margin-left: 15%;
+	border-radius: 4px;
+}
+.navbar-nav li a,
+.navbar-nav li a:visited,
+.navbar-nav li a:link,
+.navbar-nav li a:active{
+	font-weight: bold;
+	color: #8c8a87;
+}
+/* The default style */
+.view-header .navbar-nav.SNAP .default,
+.view-header .navbar-nav.Informatics .default{
+	background-color: #f2eee9;	
+	color: #8c8a87;
+}
+/* The hover style */
+.view-header .navbar-nav li a:hover{
+	background-color: #2D5370;
+	color: #FFF;
+	transition: all .5s;
+}
+/* The active style */
+.view-header .navbar-nav .default,
+.view-header .navbar-nav.SNAP .snap-proj,
+.view-header .navbar-nav.Informatics .info-proj{
+	background-color: #8c8a87;
+	color: #FFF;
+}
 #sidebar .panel-pane {
 	font-size: 14px;
 }
