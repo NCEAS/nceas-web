@@ -99,6 +99,27 @@ input[type=radio] {
  h5.subtle{
  	color: #999;
  }
+#science-header{
+ 	background-color: #9cbc89;
+}
+#science-header hgroup.panel-header{
+ 	float: left;
+ 	width: 35%;
+    width: calc(100% - 639px);
+    max-width: 900px;
+    margin-left: 20%;
+    color: white;
+    font-weight: 300;
+}
+#science-header h2{
+	font-weight: lighter;
+	line-height: 1.3em;
+}
+ #science-header img.panel-header{
+	float: right;
+	max-width: 609px;
+}
+ 
  /*
  * ========================================================================================
  */
@@ -151,6 +172,9 @@ td, th{
 	font-size: .8em;
 	text-align: center;
 }
+.gutters .col{
+	margin-right: 2%;
+}
 .highlight-box{
 	background-color: rgba(255, 255, 255, 0.5);
 	padding: 10px; 
@@ -182,6 +206,27 @@ p.unpublished{
 }
 #main-content{
 	margin-top: 20px;
+}
+.full-width .columns-inner,
+.full-width #main-content,
+.full-width-header .columns-inner,
+.full-width-header #main-content{
+ 	max-width: 100%;
+ 	margin: 0px;
+ }
+.full-width-header .two-66-33 .region-two-66-33-first{
+	margin-left: 20%;
+	width: 60%;
+	width: calc(46.66% - 41px);
+	max-width: 700px;
+}
+.full-width-header .two-66-33 .region-two-66-33-second{
+	max-width: 300px;
+}
+.full-width .two-66-33 .region-two-66-33-first{
+	margin-left: 40px;
+	width: 60%;
+	width: calc(66.66% - 41px);	
 }
 .field-name-field-subtitle{
 	font-size: 1.5em;
@@ -729,6 +774,9 @@ color: #555;
  .pane-title.block-title{
 	font-size: 2em;
 }
+.block-title{
+	color: #333;
+}
 .ptw-b #page-title,
 #page-title,
 h1{
@@ -749,6 +797,10 @@ h1{
 }
 .side-block .block-title{
 	font-size: 1.2em;
+}
+.center-title .block-title{
+	text-align: center;
+	font-weight: 500;
 }
 .block-title a{
 	color: inherit;
@@ -798,6 +850,7 @@ tr.odd, tr.info{
 }
 .more-link a,
 a.more-link,
+h5.more-link,
 .node-readmore > a{
 	border: 1px solid #8c8a87;
 	background-color: rgba(255,255,255,0.5);
@@ -814,6 +867,7 @@ a.more-link,
 }
 .more-link a:hover,
 a.more-link:hover,
+h5.more-link:hover,
 .node-readmore > a:hover{
 	text-decoration: none;
 	background-color: #f2eee9;
@@ -826,6 +880,10 @@ a.more-link:hover,
 }
 .more-link-inline{
 	border-bottom: 1px dashed #2D5370;
+}
+.more-link.full-width{
+	display: block;
+	clear: both;
 }
 /** For stand-out links **/
 .more-link.important,
@@ -1212,6 +1270,7 @@ a.flex-prev, a.flex-next{
 .blurb{
 	margin-bottom: 20px;
 	max-width: 280px;
+	position: relative;
 }
 .blurb-image{
 	margin: 0;
@@ -1227,24 +1286,11 @@ a.flex-prev, a.flex-next{
 	padding: 20px;
 	background-color: #f2eee9;
 }
-.over-image{
-	position: absolute;
-	top: 20px;
-	left: 20px;
-	width: 80%;
-	background-color: rgb(40,39,39);
-	background-color: rgba(40,39,39, 0.7);
-}
 .blurb .category a{
 	font-size: 0.9em;
 	font-weight: lighter;
 	text-transform: uppercase;
 	color: #b5b1b1;
-}
-.blurb .over-image .category,
-.blurb .over-image .category a{
-	color: #b5b1b1;
-	margin-bottom: -5px;
 }
 .blurb .title{
 	font-size: 1.2em;
@@ -1256,11 +1302,29 @@ a.flex-prev, a.flex-next{
 .blurb .title.bold{
 	font-weight: bold;
 }
+.blurb .over-image{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	background-color: rgb(40,39,39);
+	background-color: rgba(40,39,39, 0.7);
+}
+.blurb .over-image .category,
+.blurb .over-image .category a{
+	color: #b5b1b1;
+	margin-bottom: -5px;
+}
 .blurb .over-image .title{
 	color: #FFFFFF;
+	font-size: 1.5em;
+	font-weight: normal;
+	line-height: 1.5em;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	text-transform: uppercase;
+	text-transform: capatilize;
 }
 .blurb .over-image a{
 	color: #FFFFFF;
@@ -1282,6 +1346,18 @@ a.flex-prev, a.flex-next{
 	background-color: #FFFFFF;
 	background-color: rgba(255, 255, 255, 0.5);
 	color: #333333;
+}
+.blurb-fluid-col .blurb{
+	margin-right: 20px;
+	float: left;	
+}
+.blurb-two-col .blurb{
+	max-width: 45%;
+	max-width: calc(50% - 10px);
+	float: left;
+}
+.blurb-two-col .blurb:nth-child(odd){
+	margin-right: 20px;
 }
 /*
  * ===================================================================================
@@ -1318,7 +1394,7 @@ a.flex-prev, a.flex-next{
  	width: auto;
  }
  .blurb.featured .blurb-content{
- 	background-color: #75903b;
+ 	background-color: #55702C;
  	color: #FFF;
  }
  .blurb.featured .category,
@@ -1388,7 +1464,106 @@ a.flex-prev, a.flex-next{
 /*
  * ===================================================================================
  */
+/*
+ * ============================== Highlight blocks ===========================================
+ */
+ .block-two-col:after{
+ 	clear: both;
+ 	flaot: none;
+ }
+ .highlight-block {
+    min-width: 300px;
+    height: 300px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+.block-two-col .highlight-block{
+ 	width: 48%;
+ }
+.block-two-col .highlight-block:nth-child(odd){
+ 	margin-right: 2%;
+ }
+.block-four-col .highlight-block{
+ 	margin-right: 2%;
+}
+.block-four-col .highlight-block:nth-child(4n){
+	margin-right: 0%;
+}
+.block-four-col .highlight-block{
+	width: 23.5%;
+}
+.highlight-block .block-image {
+    height: 300px;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.highlight-block .block-image img {
+    min-height: 100%;
+    min-width: 100%;
+}
+.highlight-block .block-title {
+    position: absolute;
+    top: 0px;
+    color: white;
+    background-color: rgba(44, 83, 112, 0.6);
+    height: 100%;
+    width: 100%;
+    padding: 40px;
+}
+.highlight-block .block-title img {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.highlight-block .block-title h4 {
+    font-weight: lighter;
+    font-size: 1em;
+    text-align: center;
+    line-height: 1.5em;
+}
+.highlight-block .block-title .more-link{
+	position: absolute;
+	bottom: 40px;
+	left: 35%;
+	font-size: .5em;
+    color: white;
+    border-color: white;
+    background-color: transparent;
+}
+a .highlight-block:hover .more-link,
+.highlight-block:hover .more-link{
+	color: #FBFB78;
+	border-color: #FBFB78;
+}
+.highlight-block.mini{
+	min-width: 135px;
+	height: 135px;
+}
+.highlight-block.mini .block-title{
+	padding: 20px;
+}
+.highlight-block.mini .block-title h4{
+	font-size: .9em;
+	margin: 0px;
+}
+.highlight-block.mini .block-title.single-line h4{
+	margin-top: 30px;
+}
+.highlight-block.mini .block-title.double-line h4{
+	margin-top: 15px;
+}
+.highlight-block.mini:hover .block-title{
+	color: #FBFB78;
+}
 
+/* Vary every-other background color a bit so blocks next to each other don't blend together */
+ .block-two-col .highlight-block:nth-child(n+1) .block-title{
+     background-color: rgba(44, 105, 112, 0.6);
+ }
+ 
 .dynamic-sub-menu{
 	max-width: 90%;
 	background-color: #f2eee9;
