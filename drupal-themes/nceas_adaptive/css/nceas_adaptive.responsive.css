@@ -16,6 +16,11 @@
 		float: none;
 		margin: 0px auto 20px auto;
 	}
+	 #science-header img.panel-header,
+	 #science-header hgroup.panel-header{
+	 	max-width: 100%;
+	 	min-width: 90%;
+	 }
 }
 
 /* tablet_portrait all the way up to about tablet landscape */
@@ -155,12 +160,11 @@
   }
   .full-width-header #science-header hgroup.panel-header{
   	position: relative;
-  	background-color: rgba(156, 188, 137, 0.77);
   	height: 160px;
   	z-index: 1;
   	margin-left: 30px;
-  	width: 90%;
-  	width: calc(100% - 30px);
+  	width: 50%;
+  	width: calc(100% - 500px);
   	max-width: calc(100% - 30px);
   	height: 160px;
   }
@@ -181,11 +185,19 @@
 	}
 }
 
-/* Only display these styles on larger resolutions */
 @media all and (max-width: 1400px){
 	.table-of-contents{
 		position: relative;
 		top: 0px;
 	}
+
+	.full-width-header .two-66-33 .region-two-66-33-first{
+		margin-left: 20px;
+		width: 85%;
+		width: calc(100% - 20px);
+	}
+	.block-three-col .highlight-block:nth-child(1){
+		margin-left: 0px;
+	}	
 }
 
