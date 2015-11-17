@@ -102,7 +102,13 @@ input[type=radio] {
 #science-header{
  	background-color: #7a8e54;
 }
-#science-header hgroup.panel-header{
+#about-header{
+ 	background-color: #4f843c;
+}
+#impact-header{
+	background-color: #429CA5;
+}
+.full-width-header hgroup.panel-header {
     float: left;
     width: calc(100% - 520px);
     min-width: 400px;
@@ -111,13 +117,18 @@ input[type=radio] {
     font-weight: 300;
     font-size: 0.8em;
 }
-#science-header h2{
+.full-width-header hgroup.panel-header h2{
 	font-weight: lighter;
 	line-height: 1.3em;
 }
- #science-header img.panel-header{
+ .full-width-header img.panel-header{
 	float: right;
 	max-width: 499px;
+}
+.full-width-header .one-column .panel-separator + div{
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
 }
  
  /*
@@ -1579,7 +1590,7 @@ a .highlight-block:hover .more-link,
 
 /* Vary every-other background color a bit so blocks next to each other don't blend together */
  .block-two-col .highlight-block:nth-child(n+1) .block-title{
-     background-color: rgba(44, 105, 112, 0.6);
+     background-color: rgba(44, 105, 112, 0.4);
  }
  
 .dynamic-sub-menu{
