@@ -1533,7 +1533,7 @@ a.flex-prev, a.flex-next{
     position: absolute;
     top: 0px;
     color: white;
-    background-color: rgba(44, 83, 112, 0.6);
+    background-color: rgba(44, 83, 112, 0.3);
     height: 100%;
     width: 100%;
     padding: 30px;
@@ -1545,7 +1545,7 @@ a.flex-prev, a.flex-next{
     display: block;
 }
 .highlight-block .block-title h4 {
-    font-weight: lighter;
+    font-weight: normal;
     font-size: .8em;
     text-align: center;
     line-height: 1.5em;
@@ -1590,7 +1590,7 @@ a .highlight-block:hover .more-link,
 
 /* Vary every-other background color a bit so blocks next to each other don't blend together */
  .block-two-col .highlight-block:nth-child(n+1) .block-title{
-     background-color: rgba(44, 105, 112, 0.4);
+     background-color: rgba(44, 105, 112, 0.3);
  }
  
 .dynamic-sub-menu{
