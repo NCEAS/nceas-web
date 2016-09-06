@@ -173,6 +173,10 @@ td, th{
 .centered{
 	text-align: center;
 }
+
+.topalign{
+	vertical-align:top;
+}
 .double-space-below{
 	margin-bottom: 40px;
 }
