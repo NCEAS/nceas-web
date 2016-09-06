@@ -857,6 +857,18 @@ tr.odd, tr.info{
 .side-block .block-inner {
 	margin: 0;
 }
+.side-block.orange .block-title{
+	background-color: #FDE220;
+    color: #333;
+    border-bottom-color: orange;
+    margin-bottom: 0px;
+}
+.side-block.orange .block-content,
+#block-system-main .side-block.orange .block-content{
+	background-color: #FFBF4B;
+	padding: 20px;
+	color: #333;
+}
 /*----------------------------------------------------------*/
 
 
