@@ -309,8 +309,8 @@ function nceas_calendar_get_events($start_date, $end_date) {
     $query->condition('p.webok', 'TRUE', '=')
           ->condition('a.webok', 'TRUE', '=')
           
-          // We only want to display Working Group/Meeting events in calendar.
-          ->condition('a.type', array('Working Group', 'Meeting'), 'IN')
+          // We only want to display certain events in calendar.
+          ->condition('a.type', array('Working Group', 'Meeting', 'Training Workshop', 'Workshop', 'Advisory Board', 'Distributed Graduate Seminar'), 'IN')
 
           // Select only events in given range ($start_date, $end_date)
           ->condition(db_or()
