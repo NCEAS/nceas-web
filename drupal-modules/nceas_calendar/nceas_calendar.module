@@ -275,6 +275,10 @@ function nceas_calendar_get_drupal_events($start_date, $end_date) {
  * @return {stdObject} manipulated event, ready to be sent to front end.
  */
 function _nceas_calendar_map_nead_event($event) {
+  //Create a UNIX timestamp based on the start data and time
+  $event->start  = strtotime($event->start_date . $event->begin_time);
+  //Create a UNIX timestamp based on the end data and time
+  $event->end    = strtotime($event->end_date . $event->end_time);
   $event->allDay = _nceas_calendar_is_all_day($event->start, $event->end);
   return $event;
 } 
@@ -294,13 +298,15 @@ function nceas_calendar_get_events($start_date, $end_date) {
     $query->addField('a', 'activity_oid', 'id');
     $query->addField('a', 'start_date');
     $query->addField('a', 'end_date');
+    $query->addField('a', 'begin_time');
+    $query->addField('a', 'end_time');
     $query->addField('a', 'name', 'title');
     //$query->addField('p', 'title');
     $query->addField('p', 'project_oid', 'project_id');
 
     // Create Unix timestamp for start and end dates
-    $query->addExpression('EXTRACT(EPOCH FROM a.start_date)', 'start');
-    $query->addExpression('EXTRACT(EPOCH FROM a.end_date)', 'end');
+    //$query->addExpression('EXTRACT(EPOCH FROM a.begin_time)', 'start');
+    //$query->addExpression('EXTRACT(EPOCH FROM a.end_time)', 'end');
 
     // Generate link for project
     $query->addExpression('\'/projects/\'||p.project_oid', 'url');
