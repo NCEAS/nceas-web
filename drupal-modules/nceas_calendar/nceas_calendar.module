@@ -161,7 +161,7 @@ function nceas_calendar_render() {
   drupal_add_js($components . 'angular/angular.min.js');
   drupal_add_js($components . 'angular/route.js');
   drupal_add_js($components . 'ui-bootstrap/ui-bootstrap.min.js');
-  drupal_add_js($components . 'fullcalendar/fullcalendar/fullcalendar.min.js');
+  drupal_add_js($components . 'fullcalendar/fullcalendar/fullcalendar.custom.min.js');
   drupal_add_js($components . 'fullcalendar/fullcalendar/gcal2.js');
   drupal_add_js($components . 'ui-calendar/src/calendar.js');
   drupal_add_js($components . 'bootstrap/js/bootstrap.min.js');
