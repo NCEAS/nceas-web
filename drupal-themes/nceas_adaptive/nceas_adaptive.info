@@ -31,7 +31,7 @@
   ; We only need to include two stylesheets - we must include colors.css and at
   ; least one more for our custom CSS.
 
-  stylesheets[all][] = color/colors.css
+  stylesheets[all][] = colors/colors.css
   stylesheets[all][] = css/bootstrap.min.css
   stylesheets[all][] = css/grid.css
   stylesheets[all][] = css/responsivegrid.css
