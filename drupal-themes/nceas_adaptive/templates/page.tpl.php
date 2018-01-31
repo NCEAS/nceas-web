@@ -6,7 +6,6 @@
 	          <?php if ($site_logo): ?>
 	            <div id="logo">
 	              <?php print $site_logo; ?>
-	              <img class="featured-img" src="/files/graphics/anniversary-web-header.png" />
 	            </div>
 	          <?php endif; ?>
 	

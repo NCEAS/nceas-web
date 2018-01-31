@@ -332,12 +332,6 @@ p.unpublished{
 .subscribe img.icon{
 	vertical-align: top;
 }
-#logo .featured-img{
-	height: 100px;
-  	left: -49px;
-  	top: 8px;
-  	position: relative;
-}
 #nceas-menu #menu-bar {
 	background-color: #2D5370;
 	min-height: 0px;
@@ -789,6 +783,10 @@ clear: left;
 color: #555;
 }
 
+.hide-flexslider-nav .flex-control-nav{
+     display: none;
+}
+
 /*
  * ============================== Titles =======================
  */
@@ -1024,7 +1022,7 @@ a.flex-prev, a.flex-next{
 	background: #333;
 }
 .flexslider .slides > li{
-	height: 275px;
+	min-height: 275px;
 	overflow: hidden;
 }
 /******************************************/
